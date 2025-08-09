@@ -81,7 +81,7 @@ export default function CSSPracticeScaffold() {
               <div className="profile-image">
                 <div className="avatar-placeholder">👤</div>
               </div>
-              <h2 className="profile-name">Alex Designer</h2>
+              <h2 className="profile-name">Nick Designer</h2>
               <p className="profile-bio">
                 Creative frontend developer passionate about beautiful user interfaces and clean code.
                 Always learning something new!
