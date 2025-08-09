@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './CSSPracticeScaffold.css';
+import '../styles/ProfileCard.css';
 
 export default function CSSPracticeScaffold() {
   const [activeSection, setActiveSection] = useState('colors');
@@ -54,7 +55,7 @@ export default function CSSPracticeScaffold() {
 
         {/* 1. Color Palette Section */}
         {activeSection === 'colors' && (
-          <section className="color-section">
+          <section>
             <h2 className="section-title">Personal Color Palette</h2>
             <div className="color-grid">
               {colorPalette.map((color, index) => (
