@@ -1,9 +1,29 @@
 import { useState } from 'react';
 import './CSSPracticeScaffold.css';
 import '../styles/ProfileCard.css';
+import '../styles/ButtonShowcase.css';
+import '../styles/ColorPalette.css';
 
 export default function CSSPracticeScaffold() {
   const [activeSection, setActiveSection] = useState('colors');
+  const [activeButton, setActiveButton] = useState<string | null>(null);
+
+  const handleButtonClick = (key: string) => {
+    setActiveButton((prev) => (prev === key ? null : key));
+  };
+
+  const buttonVariants: Array<{ key: string; label: string }> = [
+    { key: 'primary', label: 'Primary Button' },
+    { key: 'gradient', label: 'Gradient Button' },
+    { key: 'outline', label: 'Outline Button' },
+    { key: 'shadow', label: 'Shadow Button' },
+    { key: 'rounded', label: 'Rounded Button' },
+    { key: 'flat', label: 'Flat Button' },
+    { key: 'neon', label: 'Neon Button' },
+    { key: 'glass', label: 'Glass Button' },
+    { key: 'icon', label: '❤️ Icon Button' },
+    { key: 'animated', label: 'Animated Button' },
+  ];
 
   const colorPalette = [
     { name: 'Ocean Blue', hex: '#0077BE', rgb: 'rgb(0, 119, 190)' },
@@ -55,7 +75,7 @@ export default function CSSPracticeScaffold() {
 
         {/* 1. Color Palette Section */}
         {activeSection === 'colors' && (
-          <section>
+          <section className="color-section">
             <h2 className="section-title">Personal Color Palette</h2>
             <div className="color-grid">
               {colorPalette.map((color, index) => (
@@ -101,16 +121,16 @@ export default function CSSPracticeScaffold() {
           <section className="button-section">
             <h2 className="section-title">Button Showcase</h2>
             <div className="button-grid">
-              <button className="btn btn-primary">Primary Button</button>
-              <button className="btn btn-gradient">Gradient Button</button>
-              <button className="btn btn-outline">Outline Button</button>
-              <button className="btn btn-shadow">Shadow Button</button>
-              <button className="btn btn-rounded">Rounded Button</button>
-              <button className="btn btn-flat">Flat Button</button>
-              <button className="btn btn-neon">Neon Button</button>
-              <button className="btn btn-glass">Glass Button</button>
-              <button className="btn btn-icon">❤️ Icon Button</button>
-              <button className="btn btn-animated">Animated Button</button>
+              {buttonVariants.map(({ key, label }) => (
+                <button
+                  key={key}
+                  className={`btn btn-${key} ${activeButton === key ? 'active' : ''}`}
+                  onClick={() => handleButtonClick(key)}
+                  aria-pressed={activeButton === key}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           </section>
         )}
