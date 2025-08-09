@@ -9,7 +9,7 @@ export default function CSSPracticeScaffold() {
   const [activeButton, setActiveButton] = useState<string | null>(null);
 
   const handleButtonClick = (key: string) => {
-    setActiveButton((prev) => (prev === key ? null : key));
+    setActiveButton(key);
   };
 
   const buttonVariants: Array<{ key: string; label: string }> = [

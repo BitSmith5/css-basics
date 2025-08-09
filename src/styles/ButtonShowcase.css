@@ -49,8 +49,19 @@
   color: #1a1a1a;
 }
 
-/* Keep ARIA-pressed visual in sync for keyboard users */
-.btn.btn-primary[aria-pressed="true"] {
-  background-color: #d3d3d3;
+.btn.btn-gradient {
+  color: #d3d3d3;
+  background: linear-gradient(90deg, #7c7c7c 0%, #000000 100%);
+  border: none;
+  outline: none;
+}
+
+.btn.btn-gradient:hover {
+  border: 1px solid #ffffff;
+}
+
+.btn.btn-gradient.active {
+  background: linear-gradient(90deg, #d3d3d3 0%, #000000 100%);
+  border: none;
   color: #1a1a1a;
 }
